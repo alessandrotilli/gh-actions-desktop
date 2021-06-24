@@ -1,0 +1,19 @@
+{
+  "name": "gh-actions-desktop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:alessandrotilli/gh-actions-desktop.git",
+  "author": "Alessandro Tilli <alessandro.tilli@bsmart.it>",
+  "license": "MIT",
+  "scripts": {
+    "build": "echo fake",
+    "package": "node index.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.0.0"
+  }
+}
