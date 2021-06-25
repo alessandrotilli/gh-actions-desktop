@@ -2,7 +2,8 @@ const fs       = require('fs-extra');
 const minimist = require('minimist')
 const path     = require('path');
 
-const isCd    = process.env.APP_CHANNEL === 'usb' || process.env.APP_CHANNEL === 'cd';
+const isUsb   = process.env.APP_CHANNEL === 'usb';
+const isCd    = process.env.APP_CHANNEL === 'cd';
 const version = process.env.APP_VERSION || 'xxx';
 
 const argv = minimist(process.argv.slice(2));
@@ -14,6 +15,16 @@ if (isCd) {
   }
   if (argv.mac) {
     fs.outputFileSync(path.join(dest, 'mac', 'app'), 'foo');
+  }
+  return;
+}
+
+if (isUsb) {
+  if (argv.win) {
+    fs.outputFileSync(path.join(dest, 'win-ia32-unpacked', 'app'), 'foo');
+  }
+  if (argv.mac) {
+    fs.outputFileSync(path.join(dest, 'app.dmg'), 'foo');
   }
   return;
 }
